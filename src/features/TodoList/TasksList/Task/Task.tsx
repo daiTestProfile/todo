@@ -1,12 +1,12 @@
-import {TaskType} from '../reducers/tasksReducer';
-import React, {ChangeEvent, useCallback} from 'react';
+import {TaskType} from '../../tasksReducer';
+import React, {ChangeEvent, FC, memo, useCallback} from 'react';
 import Checkbox from '@mui/material/Checkbox';
-import {EditableSpan} from './EditableSpan';
+import {EditableSpan} from 'common/components/EditableSpan';
 import IconButton from '@mui/material/IconButton';
 import Delete from '@mui/icons-material/Delete';
 import Tooltip from '@mui/material/Tooltip';
 
-export const Task: React.FC<TaskComponentPropsType> = React.memo((props: TaskComponentPropsType) => {
+export const Task: FC<TaskComponentPropsType> = memo((props) => {
 	const removeTaskHandler = useCallback(() =>
 			props.removeTask(props.todoListId, props.task.id),
 		[props.removeTask, props.todoListId, props.task.id]
