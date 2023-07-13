@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
-import {TaskType} from '../reducers/tasksReducer';
-import {Task, TaskComponentType} from './Task';
+import React, {FC, memo} from 'react';
+import {TaskType} from 'features/TodoList/tasksReducer';
+import {Task, TaskComponentType} from 'features/TodoList/TasksList/Task/Task';
 
-export const TasksList: FC<TasksListPropsType> = (props): JSX.Element => {
+export const TasksList: FC<TasksListPropsType> =memo((props): JSX.Element => {
 	const tasksItems: JSX.Element | TaskComponentType[] =
 		props.tasks.length
 			? props.tasks.map((task) => {
@@ -23,7 +23,7 @@ export const TasksList: FC<TasksListPropsType> = (props): JSX.Element => {
 			{tasksItems}
 		</ul>
 	);
-};
+}) ;
 
 //types:
 type TasksListPropsType = {
