@@ -1,14 +1,13 @@
-import React, {useCallback} from 'react';
-import {TasksList} from './TasksList';
-import {AddItemInput} from './AddItemInput';
-import {EditableSpan} from './EditableSpan';
+import React, {FC, memo, useCallback} from 'react';
+import {TasksList} from './TasksList/TasksList';
+import {AddItemInput} from 'common/components/AddItemInput';
+import {EditableSpan} from 'common/components/EditableSpan';
 import IconButton from '@mui/material/IconButton';
 import Delete from '@mui/icons-material/Delete';
-import {TaskType} from '../reducers/tasksReducer';
 import Tooltip from '@mui/material/Tooltip';
+import {TaskType} from 'features/TodoList/tasksReducer';
 
-
-export const TodoList:React.FC<TodoListPropsType> = React.memo((props) => {
+export const TodoList: FC<TodoListPropsType> = memo((props) => {
     const removeTodoListHandler = () => {
         props.removeTodoList(props.todoListId)
     }
